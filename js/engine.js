@@ -101,6 +101,7 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy){
             if(Math.abs(player.y-enemy.y)<30 && Math.abs(player.x-enemy.x)<40){
                 player.y = 400;
+                score.score = 0;
             }
         });
     }
@@ -160,6 +161,7 @@ var Engine = (function(global) {
         });
 
         player.render();
+        score.render();
     }
 
     /* This function does nothing but it could have been a good place to

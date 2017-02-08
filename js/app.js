@@ -28,6 +28,25 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+var ScreenScore = function(){
+    this.score = 0;
+    this.highScore = 0;
+};
+
+ScreenScore.prototype.update = function(){
+    this.score++;
+    if(this.score > this.highScore){
+        this.highScore = this.score;
+    }
+}
+
+ScreenScore.prototype.render = function(){
+    ctx.font = "30px serif";
+    ctx.fillStyle = "orange"
+    ctx.fillText('Score:'+this.score,395,80);
+    ctx.fillText('HighScore:'+this.highScore,10,80)
+}
+
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -53,6 +72,7 @@ Player.prototype.update = function(key) {
         if (this.y < 0) {
             this.y = 400;
             player.render();
+            score.update();
         } else {
             player.render();
         }
@@ -80,6 +100,7 @@ var enemy3 = new Enemy(0, 60);
 
 // Place the player object in a variable called player
 var player = new Player();
+var score = new ScreenScore();
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [enemy1, enemy2, enemy3];
 
