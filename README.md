@@ -1,4 +1,4 @@
-####Classic Arcade Game
+#Classic Arcade Game
 
 ##Description
 This game contain a player and bugs. To win the game player need to cross the lane with out colliding bugs.
