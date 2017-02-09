@@ -1,6 +1,17 @@
-frontend-nanodegree-arcade-game
-===============================
+###Classic Arcade Game
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+##Description
+This game contain a player and bugs. To win the game player need to cross the lane with out colliding bugs.
+If the player cross the lane successfully the score board will increase by one and highscore will be recorded.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+##Download the game
+Download the game by cloning the repo
+
+git clone https://github.com/Harish247/arcade-game.git
+
+##Play Instructions
+
+1. Up arrow to move the player up.
+2. Down arrow to move the player down.
+3. Left arrow to move the player left.
+4. Rigth arrow to move the player right.

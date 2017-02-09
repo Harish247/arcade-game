@@ -19,7 +19,7 @@ Enemy.prototype.update = function(dt) {
     if (this.x > 500) {
         this.x = 0;
     } else {
-        this.x = this.x + Math.random() * 7;
+        this.x = this.x+(Math.random()*200)*dt;
     }
 };
 
@@ -42,21 +42,23 @@ ScreenScore.prototype.update = function(){
 
 ScreenScore.prototype.render = function(){
     ctx.font = "30px serif";
-    ctx.fillStyle = "orange"
+    ctx.fillStyle = "orange";
     ctx.fillText('Score:'+this.score,395,80);
-    ctx.fillText('HighScore:'+this.highScore,10,80)
+    ctx.fillText('HighScore:'+this.highScore,10,80);
 }
 
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
 
+//player class contains player details.
 var Player = function() {
     this.x = 400;
     this.y = 400;
     this.sprite = 'images/char-boy.png'
 };
 
+//update method will update when ever the keys entered.
 Player.prototype.update = function(key) {
     if (key == 'left' && this.x > 0) {
         this.x = this.x - 100;
@@ -94,15 +96,17 @@ Player.prototype.handleInput = function(inputKey) {
 };
 
 // Now instantiate your objects.
-var enemy1 = new Enemy(0, 145);
+var enemy1 = new Enemy(200, 145);
 var enemy2 = new Enemy(0, 230);
-var enemy3 = new Enemy(0, 60);
+var enemy3 = new Enemy(150, 60);
+var enemy4 = new Enemy(250, 230);
 
 // Place the player object in a variable called player
 var player = new Player();
 var score = new ScreenScore();
+
 // Place all enemy objects in an array called allEnemies
-var allEnemies = [enemy1, enemy2, enemy3];
+var allEnemies = [enemy1, enemy2, enemy3, enemy4];
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
