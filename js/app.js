@@ -19,7 +19,7 @@ Enemy.prototype.update = function(dt) {
     if (this.x > 500) {
         this.x = 0;
     } else {
-        this.x = this.x+(Math.random()*200)*dt;
+        this.x = this.x + (Math.random() * 200) * dt;
     }
 };
 
@@ -28,24 +28,24 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-var ScreenScore = function(){
+var ScreenScore = function() {
     this.score = 0;
     this.highScore = 0;
 };
 
-ScreenScore.prototype.update = function(){
+ScreenScore.prototype.update = function() {
     this.score++;
-    if(this.score > this.highScore){
+    if (this.score > this.highScore) {
         this.highScore = this.score;
     }
-}
+};
 
-ScreenScore.prototype.render = function(){
+ScreenScore.prototype.render = function() {
     ctx.font = "30px serif";
     ctx.fillStyle = "orange";
-    ctx.fillText('Score:'+this.score,395,80);
-    ctx.fillText('HighScore:'+this.highScore,10,80);
-}
+    ctx.fillText('Score:' + this.score, 395, 80);
+    ctx.fillText('HighScore:' + this.highScore, 10, 80);
+};
 
 // Now write your own player class
 // This class requires an update(), render() and
@@ -55,7 +55,7 @@ ScreenScore.prototype.render = function(){
 var Player = function() {
     this.x = 400;
     this.y = 400;
-    this.sprite = 'images/char-boy.png'
+    this.sprite = 'images/char-boy.png';
 };
 
 //update method will update when ever the keys entered.
