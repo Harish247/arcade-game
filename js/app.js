@@ -1,3 +1,9 @@
+'use strict';
+//parent object for both enemy and player
+var Role = function(x, y) {
+    this.x = x;
+    this.y = y;
+};
 // Enemies our player must avoid
 var Enemy = function(x, y) {
     // Variables applied to each of our instances go here,
@@ -5,8 +11,7 @@ var Enemy = function(x, y) {
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    this.x = x;
-    this.y = y;
+    Role.call(this, x, y);
     this.sprite = 'images/enemy-bug.png';
 };
 
@@ -53,8 +58,7 @@ ScreenScore.prototype.render = function() {
 
 //player class contains player details.
 var Player = function() {
-    this.x = 400;
-    this.y = 400;
+    Role.call(this, 400, 400);
     this.sprite = 'images/char-boy.png';
 };
 
@@ -62,26 +66,26 @@ var Player = function() {
 Player.prototype.update = function(key) {
     if (key == 'left' && this.x > 0) {
         this.x = this.x - 100;
-        player.render();
+        this.render();
     } else if (key == 'right' && this.x < 400) {
         this.x = this.x + 100;
-        player.render();
+        this.render();
     } else if (key == 'down' && this.y < 400) {
         this.y = this.y + 90;
-        player.render();
+        this.render();
     } else if (key == 'up' && this.y > 30) {
         this.y = this.y - 90;
         if (this.y < 0) {
             this.y = 400;
-            player.render();
+            this.render();
             score.update();
         } else {
-            player.render();
+            this.render();
         }
     } else {
         this.x = this.x;
         this.y = this.y;
-        player.render();
+        this.render();
     }
 };
 
@@ -91,7 +95,7 @@ Player.prototype.render = function() {
 
 Player.prototype.handleInput = function(inputKey) {
     if (inputKey) {
-        player.update(inputKey);
+        this.update(inputKey);
     }
 };
 
